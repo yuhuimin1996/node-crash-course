@@ -1,0 +1,28 @@
+<html lang="en">
+
+<%- include("./partials/head.ejs") %>
+
+
+<body>
+
+<%- include("./partials/nav.ejs") %>
+
+<div class="movie reviews">
+    <h2>Movie Reviews</h2>
+    <% if(reviews.length > 0) { %>
+        <% reviews.forEach(review => { %>
+            <a class="single" href="/movie/<%= review._id %>">
+            <h3 class="title"><%= review.title %></h3>
+            <p class="snippet"><%= review.snippet %></p>
+        </a>
+        <% }) %>
+        <% } else { %>
+            <p>There are no reviews to display</p>
+        <% } %>
+
+    <a href="/movie/create"><button>add movie reviews</button></a>
+</div>
+<%- include("./partials/footer.ejs") %>
+</body>
+
+</html>
